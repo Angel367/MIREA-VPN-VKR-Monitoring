@@ -1,0 +1,24 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+
+  - job_name: 'node_exporters'
+    static_configs:
+      - targets:
+          - 194.147.35.27:9100
+          - 77.105.162.202:9100
+          - 192.145.28.82:9100
+          - 192.145.30.254:9100
+        labels:
+          group: 'vpn_servers'
+
+  - job_name: 'cadvisors'
+    static_configs:
+      - targets:
+          - 194.147.35.27:8080
+          - 77.105.162.202:8080
+          - 192.145.28.82:8080
+          - 192.145.30.254:8080
+        labels:
+          group: 'vpn_servers'
